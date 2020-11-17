@@ -50,7 +50,7 @@
 </ul>
 <p><span style="color: #008000;"><strong>Suggestion</strong>: Use three <strong>JPanel</strong>s, one for each hand (player-bottom and computer-top) and a middle "playing" <strong>JPanel</strong>.&nbsp; The client (below) will generate the human's cards at random and those will be <i>visible</i> in the bottom <strong>JPanel</strong>, while the computer's cards will be chosen (again, by the client) to be all <i><strong>back-of-card</strong></i> images in the top <strong>JPanel</strong>.&nbsp; The middle <strong>JPanel</strong> will display cards that are "played" by the computer and human during the conflict.&nbsp; Let's assume that each player plays one card per round, so for a 2-person game (computer + human) there will be exactly two cards played in the central region<i> per round of battle</i>.&nbsp; My client chose a <i><strong>joker</strong></i> for the two central cards, just so we would have something to see in the playing region.&nbsp; No game is being played in this assignment, so the cards to be displayed in the center are immaterial.</span></p>
 <h4>GUICard Class</h4>
-<p>This class is the benefactor of most of the GUI machinery we tested in <i><strong>Phase 1</strong></i>. It will read the image files and store them in a static <strong>Icon</strong> array. Rather than a 1-D array of <i><strong>Phase 1</strong></i> (if you followed my earlier outline), this will be a 2-D array to facilitate addressing the value and suit of a <strong>Card</strong> in order get its <strong>Icon</strong>. While simple in principle (just read the <strong>Icons</strong> and store them in an array for client use), the details are subtle. We have to be able to convert from <strong>chars</strong> and <strong>suits</strong> to <strong>ints</strong>, and back again, in order to find the <strong>Icon</strong> for any given <strong>Card</strong> object. The overview of the class data and methods, shown below, will suggest the right approach and should take the mystery out of this class.</p>
+<p>This class is the benefactor of most of the GUI machinery we tested in <i><strong>Phase 1</strong></i>. It will read the image files and store them in a static <strong>Icon</strong> array. In place of the 1-D array from <i><strong>Phase 1</strong></i>, this is a 2-D array to facilitate addressing the value and suit of a <strong>Card</strong> in order get its <strong>Icon</strong>. While simple in principle (just read the <strong>Icons</strong> and store them in an array for client use), this task required being able to convert from <strong>chars</strong> and <strong>suits</strong> to <strong>ints</strong>, and back again in order to match the <strong>Icon</strong> for any given <strong>Card</strong> object. </p>
 <h5><span style="background-color: #ffff00;">Static Members</span></h5>
 <blockquote>
 <pre> private static Icon[][] iconCards = new ImageIcon[14][4]; // 14 = A thru K (+ joker optional)
@@ -70,15 +70,14 @@
       Card.Suit.spades
    };
 </pre>
-<p>The first two arrays are the ones we used in phase 1, but moved into this class.&nbsp; The third is a new array used to convert ints into actual enum Suits, as you'll see.</p>
+
 <h5><span style="background-color: #ffff00;">Static Methods</span></h5>
-<p>To begin, we need a method generates the image Icon array from files:</p>
+<p>We needed a method to generate the image Icon array from files:</p>
 <ul>
 <li>
-<strong>static void loadCardIcons()</strong> - the code for this was fundamentally done in <i><strong>Phase 1</strong></i>.&nbsp; The difference here is that we are storing the<strong> Icon</strong>s in a 2-D array.&nbsp; So you have to use a nested <i><strong>for-loop</strong></i>, suits and values, to generate the 2-D index for each <strong>Icon</strong> in the array. Another suggestion:&nbsp; I'd like you to not require the client to call this method.&nbsp; Think about where you would need to call it and how can you avoid having the method reload the icons after it has already loaded them once.&nbsp; The hint is in the <strong>static boolean iconsLoaded = false;</strong>, above.&nbsp; <i><span style="color: #008000;"><strong>Hint:&nbsp; </strong>Call this method any time you might need an <strong>Icon</strong>, but make sure that it loads the entire array the first time it is called, and does nothing any later time</span>.</i>
+<strong>static void loadCardIcons()</strong> -The brunt of this code was achieved in <i><strong>Phase 1</strong></i>.&nbsp; The subtle difference here is that the<strong> Icon</strong>s was stored in a 2-D array.&nbsp; 
 </li>
 </ul>
-<p>The use of <strong>loadCardIcons()</strong> should be clearer after you take a look at the primary public method offered by this class:</p>
 <ul>
 <li>
 <strong>static public Icon getIcon(Card card) </strong>- This method takes a <strong>Card</strong> object from the client, and returns the <strong>Icon</strong> for that card.&nbsp; It would be used when the client needs to instantiate or change a <strong>JLabel</strong>.&nbsp; Here is what the <strong>getIcon()</strong> method definition might look like:
@@ -89,12 +88,12 @@
  }</pre>
 </li>
 </ul>
-<p>I just realized I wrote the entire method for you.&nbsp; Well, there are three method calls packed into this definition, and those, I did not write.&nbsp; Now you see where <strong>loadCardIcons()</strong> is called, and you see why we don't want it to do anything except <strong>return</strong> if the cards are already loaded.&nbsp; There is another method that returns the <i><strong>card-back</strong></i> image:</p>
+
 <ul>
 <li>
-<strong>static public Icon getBackCardIcon()</strong> - this one is even simpler than <strong>getIcon()</strong>.</li>
+<strong>static public Icon getBackCardIcon()</strong> - this is a reduced implementationthan of<strong>getIcon()</strong>.</li>
 </ul>
-<p>The above three methods comprise the essential part of the <strong>GUICard</strong> class.&nbsp; Everything else is support for these three, so you can work off my implied suggestions, or you can build the class from scratch as you wish.&nbsp; Just make sure you are efficient.</p>
+
 <h4>Main Foothill Client</h4>
 <h5><span style="background-color: #ffff00;">Static Methods</span></h5>
 <p>This class now only has the <strong>main()</strong> and one other static helper method:</p>
@@ -112,4 +111,3 @@
 
 
 
-          </div>

@@ -1,70 +1,10 @@
-# Card-Table: 
+# Card-Table GUI
             
-<div id="assignment_show" class="assignment content_underline_links">
-    <!--Student View-->
-    <div class="assignment-title">
-      <div class="title-content">
-        <h1 class="title">
-          Assignment 5 - GUI Cards
-        </h1>
-      </div>
-      <div class="assignment-buttons">
-        
 
-        
-      </div>
-    </div>
-    
-<ul class="student-assignment-overview">
-  <li>
-    <span class="title">Due</span>
-    <span class="value">
-          <span class="date_text">
-                <span class="display_date">May 18, 2017</span> by 
-                <span class="display_time"> 2pm</span>
-          </span>
-        </span>
-  </li>
-  <li>
-    <span class="title">Points</span>
-    <span class="value">20</span>
-  </li>
-    <li>
-      <span class="title">Submitting</span>
-      <span class="value">a file upload</span>
-    </li>
-      <li>
-        <span class="title">File Types</span>
-        <span class="value">txt</span>
-      </li>
-  
-  <li>
-    <span class="title">Available</span>
-    <span class="value">
-        May 11, 2017 at 2pm - Jun 29, 2017 at 11:59pm
-        <span style="font-size: 0.8em;">about 2 months</span>
-    </span>
-  </li>
 
-  <div class="clear"></div>
-</ul>
-
-  <div class="clear"></div>
-
-    This assignment was locked Jun 29, 2017 at 11:59pm.
-
-  <div class="clear"></div>
-
-  <div class="description user_content student-version enhanced jqueryUIWidgetized"><h1 style="text-align: center;">Assignment 5 - GUI Cards</h1>
-<p>Select one option from below.&nbsp; All (both) options are worth the same number of points.&nbsp; The more advanced option(s) are provided for students who find the basic one too easy and want more of a challenge.&nbsp;&nbsp; Make sure you have read and understood</p>
-<ul>
-<li>both <span style="color: #000080;"><strong><i>m</i></strong></span><i><strong><span style="color: #000080;">odules A</span></strong></i> and <i><strong> <span style="color: #000080;">B</span></strong></i> this week, and</li>
-<li><em><strong><span style="color: #000080;">module 2R - Lab Homework Requirements</span></strong></em></li>
-</ul>
-<p>before submitting this assignment.</p>
-<h4 style="color: #ff0000;">OPTION A (Basic):&nbsp; A JFrame of Card Icons</h4>
-<h3><u>Understand the Classes and Problem</u></h3>
-<p>We wish to move our <strong>Card</strong> classes from the realm of console apps to that of GUI apps.&nbsp; We'll do this in stages.</p>
+<h4 style="color: #ff0000;"> A JFrame of Card Icons</h4>
+<h3><u>Objective</u></h3>
+<p>The purpose of this assignment was to transition <strong>Card</strong> classes from the realm of console apps to that of GUI apps.&nbsp; This was accomplished per the following stages:</p>
 <ol>
 <li>
 <strong>Read and display Card pictures</strong> - Read <strong>.gif</strong> image files as <strong>Icons</strong>, and attach them to <strong>JLabels</strong> that we can display on a <strong>JFrame</strong>.</li>
